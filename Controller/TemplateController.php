@@ -2,14 +2,11 @@
 
 namespace Bigfoot\Bundle\ContentBundle\Controller;
 
-use Symfony\Component\HttpFoundation\Request;
-use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
-use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
+use Bigfoot\Bundle\CoreBundle\Controller\BaseController;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Cache;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
-use Sensio\Bundle\FrameworkExtraBundle\Configuration\Cache;
-
-use Bigfoot\Bundle\CoreBundle\Controller\BaseController;
+use Symfony\Component\HttpFoundation\Request;
 
 /**
  * Template controller.

@@ -2,10 +2,9 @@
 
 namespace Bigfoot\Bundle\ContentBundle\Entity\Block\Template;
 
+use Bigfoot\Bundle\ContentBundle\Entity\Block;
 use Doctrine\ORM\Mapping as ORM;
 use Gedmo\Mapping\Annotation as Gedmo;
-
-use Bigfoot\Bundle\ContentBundle\Entity\Block;
 
 /**
  * Title2Desc2Media2
@@ -29,7 +28,6 @@ class Title2Desc2Media2 extends Block
      * @ORM\Column(name="title_2", type="string", length=255)
      */
     private $title2;
-
 
     /**
      * @var string

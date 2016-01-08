@@ -2,18 +2,15 @@
 
 namespace Bigfoot\Bundle\ContentBundle\Twig\Extension;
 
-use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
+use Bigfoot\Bundle\ContentBundle\Entity\Block;
+use Bigfoot\Bundle\ContentBundle\Entity\Page;
+use Bigfoot\Bundle\ContentBundle\Entity\Page\Sidebar as PageSidebar;
+use Bigfoot\Bundle\ContentBundle\Entity\Sidebar;
 use Doctrine\ORM\EntityManager;
+use Symfony\Component\Routing\RouterInterface;
+use Twig_Environment;
 use Twig_Extension;
 use Twig_Function_Method;
-use Twig_Environment;
-use Symfony\Component\Routing\RouterInterface;
-
-use Bigfoot\Bundle\ContentBundle\Entity\Page;
-use Bigfoot\Bundle\ContentBundle\Entity\Sidebar;
-use Bigfoot\Bundle\ContentBundle\Entity\Page\Block as PageBlock;
-use Bigfoot\Bundle\ContentBundle\Entity\Page\Sidebar as PageSidebar;
-use Bigfoot\Bundle\ContentBundle\Entity\Block;
 
 /**
  * ContentExtension

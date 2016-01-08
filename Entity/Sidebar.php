@@ -2,17 +2,16 @@
 
 namespace Bigfoot\Bundle\ContentBundle\Entity;
 
-use Doctrine\ORM\Mapping as ORM;
-use Doctrine\Common\Collections\ArrayCollection;
-use Gedmo\Mapping\Annotation as Gedmo;
-
-use Bigfoot\Bundle\ContentBundle\Model\Content;
 use Bigfoot\Bundle\ContentBundle\Entity\Page\Sidebar as PageSidebar;
 use Bigfoot\Bundle\ContentBundle\Entity\Page\Sidebar2 as PageSidebar2;
 use Bigfoot\Bundle\ContentBundle\Entity\Page\Sidebar3 as PageSidebar3;
 use Bigfoot\Bundle\ContentBundle\Entity\Page\Sidebar4 as PageSidebar4;
 use Bigfoot\Bundle\ContentBundle\Entity\Page\Sidebar5 as PageSidebar5;
 use Bigfoot\Bundle\ContentBundle\Entity\Sidebar\Block as SidebarBlock;
+use Bigfoot\Bundle\ContentBundle\Model\Content;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\ORM\Mapping as ORM;
+use Gedmo\Mapping\Annotation as Gedmo;
 
 /**
  * Sidebar

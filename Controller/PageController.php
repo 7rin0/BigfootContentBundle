@@ -2,17 +2,14 @@
 
 namespace Bigfoot\Bundle\ContentBundle\Controller;
 
-use Symfony\Component\HttpFoundation\Request;
-use Symfony\Component\EventDispatcher\GenericEvent;
-use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
-use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
-use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
-use Sensio\Bundle\FrameworkExtraBundle\Configuration\Cache;
-use Doctrine\Common\Collections\ArrayCollection;
-
 use Bigfoot\Bundle\CoreBundle\Controller\CrudController;
-use Bigfoot\Bundle\CoreBundle\Util\StringManager;
 use Bigfoot\Bundle\CoreBundle\Event\FormEvent;
+use Bigfoot\Bundle\CoreBundle\Util\StringManager;
+use Doctrine\Common\Collections\ArrayCollection;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Cache;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
+use Symfony\Component\EventDispatcher\GenericEvent;
+use Symfony\Component\HttpFoundation\Request;
 
 /**
  * Page controller.
@@ -259,7 +256,6 @@ class PageController extends CrudController
                     'label' => 'Page successfully deleted!'
                 )
             );
-
 
             return $this->redirect($this->generateUrl($this->getRouteNameForAction('index')));
         }

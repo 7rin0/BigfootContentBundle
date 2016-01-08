@@ -59,7 +59,6 @@ $(document).ready(function()
 
 });
 
-
 function clickableHeaderWidget()
 {
     $('.header_form_widget_element').unbind('click');

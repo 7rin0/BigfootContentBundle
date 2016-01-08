@@ -2,10 +2,9 @@
 
 namespace Bigfoot\Bundle\ContentBundle\Entity\Page\Template;
 
+use Bigfoot\Bundle\ContentBundle\Entity\Page;
 use Doctrine\ORM\Mapping as ORM;
 use Gedmo\Mapping\Annotation as Gedmo;
-
-use Bigfoot\Bundle\ContentBundle\Entity\Page;
 
 /**
  * TitleDesc2MediaBlock

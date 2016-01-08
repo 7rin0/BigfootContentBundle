@@ -2,10 +2,9 @@
 
 namespace Bigfoot\Bundle\ContentBundle\Entity\Block\Template;
 
+use Bigfoot\Bundle\ContentBundle\Entity\Block;
 use Doctrine\ORM\Mapping as ORM;
 use Gedmo\Mapping\Annotation as Gedmo;
-
-use Bigfoot\Bundle\ContentBundle\Entity\Block;
 
 /**
  * TitleDesc

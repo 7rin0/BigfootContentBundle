@@ -2,17 +2,11 @@
 
 namespace Bigfoot\Bundle\ContentBundle\Form\Type;
 
-use Bigfoot\Bundle\ContentBundle\Entity\Attribute;
-use Bigfoot\Bundle\ContentBundle\Entity\Block;
 use Bigfoot\Bundle\ContentBundle\Entity\Page;
 use Bigfoot\Bundle\ContentBundle\Entity\Sidebar;
-use Bigfoot\Bundle\ContentBundle\Model\Content;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
-use Symfony\Component\Form\FormEvent;
-use Symfony\Component\Form\FormEvents;
 use Symfony\Component\OptionsResolver\OptionsResolverInterface;
-use Doctrine\ORM\EntityRepository;
 
 class ContentType extends AbstractType
 {
