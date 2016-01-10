@@ -75,7 +75,7 @@ abstract class Content
      */
     public function __toString()
     {
-        return $this->getName();
+        return $this->getBlockPrefix();
     }
 
     /**
@@ -96,7 +96,7 @@ abstract class Content
      *
      * @return string
      */
-    public function getName()
+    public function getBlockPrefix()
     {
         return $this->name;
     }

@@ -20,7 +20,7 @@ class SidebarController extends CrudController
     /**
      * @return string
      */
-    protected function getName()
+    protected function getBlockPrefix()
     {
         return 'admin_sidebar';
     }

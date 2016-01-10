@@ -6,7 +6,7 @@ use Bigfoot\Bundle\ContentBundle\Entity\Page;
 use Bigfoot\Bundle\ContentBundle\Entity\Sidebar;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
-use Symfony\Component\OptionsResolver\OptionsResolverInterface;
+use Symfony\Component\OptionsResolver\OptionsResolver;
 
 class ContentType extends AbstractType
 {
@@ -46,9 +46,9 @@ class ContentType extends AbstractType
     }
 
     /**
-     * @param OptionsResolverInterface $resolver
+     * @param OptionsResolver $resolver
      */
-    public function setDefaultOptions(OptionsResolverInterface $resolver)
+    public function setDefaultOptions(OptionsResolver $resolver)
     {
         $resolver->setDefaults(
             array(
@@ -63,7 +63,7 @@ class ContentType extends AbstractType
     /**
      * @return string
      */
-    public function getName()
+    public function getBlockPrefix()
     {
         return 'admin_content';
     }

@@ -6,7 +6,7 @@ use Bigfoot\Bundle\ContentBundle\Entity\Attribute;
 use Doctrine\ORM\EntityRepository;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
-use Symfony\Component\OptionsResolver\OptionsResolverInterface;
+use Symfony\Component\OptionsResolver\OptionsResolver;
 
 class TitleDescMediaType extends AbstractType
 {
@@ -67,9 +67,9 @@ class TitleDescMediaType extends AbstractType
     }
 
     /**
-     * @param OptionsResolverInterface $resolver
+     * @param OptionsResolver $resolver
      */
-    public function setDefaultOptions(OptionsResolverInterface $resolver)
+    public function setDefaultOptions(OptionsResolver $resolver)
     {
         $resolver->setDefaults(
             array(
@@ -83,7 +83,7 @@ class TitleDescMediaType extends AbstractType
     /**
      * @return string
      */
-    public function getName()
+    public function getBlockPrefix()
     {
         return 'admin_block_template_title_desc_media';
     }

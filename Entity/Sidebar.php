@@ -121,7 +121,7 @@ class Sidebar extends Content
      */
     public function __toString()
     {
-        return $this->getName().' - '.$this->getParentTemplate();
+        return $this->getBlockPrefix().' - '.$this->getParentTemplate();
     }
 
     /**
@@ -462,10 +462,10 @@ class Sidebar extends Content
 
         /** @var Attribute $attribute */
         foreach ($this->attributes as $attribute) {
-            if (!isset($toReturn[$attribute->getName()])) {
-                $toReturn[$attribute->getName()] = array();
+            if (!isset($toReturn[$attribute->getBlockPrefix()])) {
+                $toReturn[$attribute->getBlockPrefix()] = array();
             }
-            $toReturn[$attribute->getName()][] = $attribute->getValue();
+            $toReturn[$attribute->getBlockPrefix()][] = $attribute->getValue();
         }
 
         return $toReturn;
