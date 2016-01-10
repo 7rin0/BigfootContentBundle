@@ -108,7 +108,7 @@ class PageController extends CrudController
         $page->setTemplate($template);
         $action = $this->generateUrl('admin_page_new', array('template' => $template));
         $form   = $this->createForm(
-            'admin_page_template_'.$pTemplate,
+            $this->get('bigfoot_content.form.type.page_'.$pTemplate),
             $page,
             array(
                 'template'  => $template,
@@ -155,7 +155,7 @@ class PageController extends CrudController
         $templates = $this->getTemplates($page->getParentTemplate());
         $action    = $this->generateUrl('admin_page_edit', array('id' => $page->getId()));
         $form      = $this->createForm(
-            'admin_page_template_'.$page->getParentTemplate(),
+            $this->get('bigfoot_content.form.type.page_'.$page->getParentTemplate()),
             $page,
             array(
                 'template'  => $page->getSlugTemplate(),
