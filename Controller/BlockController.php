@@ -21,7 +21,7 @@ class BlockController extends CrudController
     /**
      * @return string
      */
-    protected function getBlockPrefix()
+    protected function getName()
     {
         return 'admin_block';
     }
@@ -149,7 +149,7 @@ class BlockController extends CrudController
                     $content = array(
                         'prototype' => $prototype,
                         'option'    => array(
-                            'label' => $block->getBlockPrefix().' - '.$block->getParentTemplate(),
+                            'label' => $block->getName().' - '.$block->getParentTemplate(),
                             'value' => $block->getId()
                         )
                     );
@@ -235,7 +235,7 @@ class BlockController extends CrudController
                         'prototype' => $prototype,
                         'option'    => array(
                             'id'    => $block->getId(),
-                            'label' => $block->getBlockPrefix().' - '.$block->getParentTemplate(),
+                            'label' => $block->getName().' - '.$block->getParentTemplate(),
                         )
                     );
 

@@ -127,7 +127,7 @@ class Block extends Content
      */
     public function __toString()
     {
-        return $this->getBlockPrefix().' - '.$this->getParentTemplate();
+        return $this->getName().' - '.$this->getParentTemplate();
     }
 
     /**
@@ -438,11 +438,11 @@ class Block extends Content
         $toReturn = array();
 
         foreach ($this->attributes as $attribute) {
-            if (!isset($toReturn[$attribute->getBlockPrefix()])) {
-                $toReturn[$attribute->getBlockPrefix()] = array();
+            if (!isset($toReturn[$attribute->getName()])) {
+                $toReturn[$attribute->getName()] = array();
             }
 
-            $toReturn[$attribute->getBlockPrefix()][] = $attribute->getValue();
+            $toReturn[$attribute->getName()][] = $attribute->getValue();
         }
 
         return $toReturn;

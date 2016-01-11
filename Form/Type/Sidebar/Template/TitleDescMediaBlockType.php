@@ -100,7 +100,7 @@ class TitleDescMediaBlockType extends AbstractType
     /**
      * @return string
      */
-    public function getBlockPrefix()
+    public function getName()
     {
         return 'admin_sidebar_template_title_desc_media_block';
     }

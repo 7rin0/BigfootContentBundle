@@ -115,7 +115,7 @@ class TitleDescBlockType extends AbstractType
     /**
      * @return string
      */
-    public function getBlockPrefix()
+    public function getName()
     {
         return 'admin_page_template_title_desc_block';
     }
