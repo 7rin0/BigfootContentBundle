@@ -9,7 +9,6 @@ use Doctrine\Common\Collections\ArrayCollection;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Cache;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Component\EventDispatcher\GenericEvent;
-use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\RequestStack;
 
 /**
@@ -243,6 +242,7 @@ class PageController extends CrudController
     public function deleteAction(RequestStack $requestStack, $id)
     {
         $entity = $this->getRepository($this->getEntity())->find($id);
+        $requestStack = $requestStack->getCurrentRequest();
 
         if (!$entity) {
             throw new NotFoundHttpException(sprintf('Unable to find %s entity.', $this->getEntity()));
@@ -250,7 +250,7 @@ class PageController extends CrudController
 
         $this->removeAndFlush($entity);
 
-        if (!$request->isXmlHttpRequest()) {
+        if (!$requestStack->isXmlHttpRequest()) {
             $this->addSuccessFlash(
                 'Page successfully deleted!',
                 array(
