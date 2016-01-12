@@ -22,7 +22,7 @@ class TemplateController extends BaseController
      * @Route("/choose/{contentType}", name="admin_content_template_choose")
      * @Template()
      */
-    public function chooseAction(Request $request, $contentType = null)
+    public function chooseAction(RequestStack $requestStack, $contentType = null)
     {
         $templates = $this->container->getParameter('bigfoot_content.templates.'.$contentType);
         $form      = $this->createForm(
@@ -41,7 +41,7 @@ class TemplateController extends BaseController
             'form_cancel' => 'admin_'.$contentType,
         );
 
-        if ('POST' === $request->getMethod()) {
+        if ('POST' === $requestStack->getCurrentRequest()->getMethod()) {
             $form->handleRequest($request);
 
             if ($form->isValid()) {

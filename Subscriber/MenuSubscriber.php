@@ -5,7 +5,7 @@ namespace Bigfoot\Bundle\ContentBundle\Subscriber;
 use Bigfoot\Bundle\CoreBundle\Event\MenuEvent;
 use Symfony\Component\EventDispatcher\EventSubscriberInterface;
 use Symfony\Component\EventDispatcher\GenericEvent;
-use Symfony\Component\Security\Core\SecurityContextInterface;
+use Symfony\Component\Security\Core\Security;
 
 /**
  * Menu Subscriber
@@ -13,14 +13,14 @@ use Symfony\Component\Security\Core\SecurityContextInterface;
 class MenuSubscriber implements EventSubscriberInterface
 {
     /**
-     * @var \Symfony\Component\Security\Core\SecurityContextInterface
+     * @var \Symfony\Component\Security\Core\Security
      */
     private $security;
 
     /**
-     * @param SecurityContextInterface $security
+     * @param Security $security
      */
-    public function __construct(SecurityContextInterface $security)
+    public function __construct(Security $security)
     {
         $this->security = $security;
     }

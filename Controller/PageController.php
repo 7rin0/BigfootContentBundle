@@ -99,7 +99,7 @@ class PageController extends CrudController
      *
      * @Route("/new/{template}", name="admin_page_new")
      */
-    public function chooseAction(Request $request, $template)
+    public function chooseAction(RequestStack $requestStack, $template)
     {
         $pTemplate = $this->getParentTemplate($template);
         $templates = $this->getTemplates($pTemplate);
@@ -118,7 +118,7 @@ class PageController extends CrudController
 
         $this->getEventDispatcher()->dispatch(FormEvent::CREATE, new GenericEvent($form));
 
-        if ('POST' === $request->getMethod()) {
+        if ('POST' === $requestStack->getCurrentRequest()->getMethod()) {
             $form->handleRequest($request);
 
             if ($form->isValid()) {
@@ -144,7 +144,7 @@ class PageController extends CrudController
      *
      * @Route("/edit/{id}", name="admin_page_edit")
      */
-    public function editAction(Request $request, $id)
+    public function editAction(RequestStack $requestStack, $id)
     {
         $page = $this->getRepository($this->getEntity())->find($id);
 
@@ -190,7 +190,7 @@ class PageController extends CrudController
             }
         }
 
-        if ('POST' === $request->getMethod()) {
+        if ('POST' === $requestStack->getCurrentRequest()->getMethod()) {
             $form->handleRequest($request);
 
             if ($form->isValid()) {
@@ -238,7 +238,7 @@ class PageController extends CrudController
      *
      * @Route("/delete/{id}", name="admin_page_delete")
      */
-    public function deleteAction(Request $request, $id)
+    public function deleteAction(RequestStack $requestStack, $id)
     {
         $entity = $this->getRepository($this->getEntity())->find($id);
 

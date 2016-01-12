@@ -94,7 +94,7 @@ class SidebarController extends CrudController
      *
      * @Route("/new/{template}", name="admin_sidebar_new")
      */
-    public function newAction(Request $request, $template)
+    public function newAction(RequestStack $requestStack, $template)
     {
         $pTemplate = $this->getParentTemplate($template);
         $templates = $this->getTemplates($pTemplate);
@@ -112,7 +112,7 @@ class SidebarController extends CrudController
             )
         );
 
-        if ('POST' === $request->getMethod()) {
+        if ('POST' === $requestStack->getCurrentRequest()->getMethod()) {
             $form->handleRequest($request);
 
             if ($form->isValid()) {
@@ -138,7 +138,7 @@ class SidebarController extends CrudController
      *
      * @Route("/edit/{id}", name="admin_sidebar_edit")
      */
-    public function editAction(Request $request, $id)
+    public function editAction(RequestStack $requestStack, $id)
     {
         $sidebar = $this->getRepository($this->getEntity())->find($id);
 
@@ -163,7 +163,7 @@ class SidebarController extends CrudController
             $dbBlocks->add($block);
         }
 
-        if ('POST' === $request->getMethod()) {
+        if ('POST' === $requestStack->getCurrentRequest()->getMethod()) {
             $form->handleRequest($request);
 
             if ($form->isValid()) {
@@ -196,7 +196,7 @@ class SidebarController extends CrudController
      *
      * @Route("/delete/{id}", name="admin_sidebar_delete")
      */
-    public function deleteAction(Request $request, $id)
+    public function deleteAction(RequestStack $requestStack, $id)
     {
         $entity = $this->getRepository($this->getEntity())->find($id);
 

@@ -9,6 +9,7 @@ use Bigfoot\Bundle\CoreBundle\Util\StringManager;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Cache;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\HttpFoundation\RequestStack;
 
 /**
  * Block controller.
@@ -98,12 +99,13 @@ class BlockController extends CrudController
      *
      * @Route("/new/{template}", name="admin_block_new")
      */
-    public function newAction(Request $request, $template)
+    public function newAction(RequestStack $requestStack, $template)
     {
         $pTemplate = $this->getParentTemplate($template);
         $templates = $this->getTemplates('block', $pTemplate);
         $block     = $templates['class'];
         $block     = new $block();
+        $requestStack = $requestStack->getCurrentRequest();
         $block->setTemplate($template);
 
         $action = $this->generateUrl('admin_block_new', array('template' => $template));
@@ -116,15 +118,15 @@ class BlockController extends CrudController
             )
         );
 
-        if ('POST' === $request->getMethod()) {
-            $form->handleRequest($request);
+        if ('POST' === $requestStack->getMethod()) {
+            $form->handleRequest($requestStack);
 
             if ($form->isValid()) {
                 $this->persistAndFlush($block);
 
-                if ($request->isXmlHttpRequest()) {
-                    $contentType = $request->query->get('contentType');
-                    $qTemplate   = $request->query->get('template');
+                if ($requestStack->isXmlHttpRequest()) {
+                    $contentType = $requestStack->query->get('contentType');
+                    $qTemplate   = $requestStack->query->get('template');
 
                     if (is_numeric($qTemplate)) {
                         $qTemplate = $this->getRepository('BigfootContentBundle:'.ucfirst($contentType))->find($qTemplate)->getSlugTemplate();
@@ -167,7 +169,7 @@ class BlockController extends CrudController
 
                 return $this->redirect($this->generateUrl('admin_block_edit', array('id' => $block->getId())));
             } else {
-                if ($request->isXmlHttpRequest()) {
+                if ($requestStack->isXmlHttpRequest()) {
                     return $this->renderAjax(false, 'Error during addition!', $this->renderForm($form, $action, $block)->getContent());
                 }
             }
@@ -181,9 +183,10 @@ class BlockController extends CrudController
      *
      * @Route("/edit/{id}", name="admin_block_edit", options={"expose"=true})
      */
-    public function editAction(Request $request, $id)
+    public function editAction(RequestStack $requestStack, $id)
     {
         $block = $this->getRepository($this->getEntity())->find($id);
+        $requestStack = $requestStack->getCurrentRequest();
 
         if (!$block) {
             throw new NotFoundHttpException('Unable to find block entity.');
@@ -201,15 +204,15 @@ class BlockController extends CrudController
             )
         );
 
-        if ('POST' === $request->getMethod()) {
-            $form->handleRequest($request);
+        if ('POST' === $requestStack->getMethod()) {
+            $form->handleRequest($requestStack);
 
             if ($form->isValid()) {
                 $this->persistAndFlush($block);
 
-                if ($request->isXmlHttpRequest()) {
-                    $contentType = $request->query->get('contentType');
-                    $qTemplate   = $request->query->get('template');
+                if ($requestStack->isXmlHttpRequest()) {
+                    $contentType = $requestStack->query->get('contentType');
+                    $qTemplate   = $requestStack->query->get('template');
 
                     if (is_numeric($qTemplate)) {
                         $qTemplate = $this->getRepository('BigfootContentBundle:'.ucfirst($contentType))->find($qTemplate)->getSlugTemplate();
@@ -262,9 +265,10 @@ class BlockController extends CrudController
      *
      * @Route("/delete/{id}", name="admin_block_delete")
      */
-    public function deleteAction(Request $request, $id)
+    public function deleteAction(RequestStack $requestStack, $id)
     {
         $entity = $this->getRepository($this->getEntity())->find($id);
+        $requestStack = $requestStack->getCurrentRequest();
 
         if (!$entity) {
             throw new NotFoundHttpException(sprintf('Unable to find %s entity.', $this->getEntity()));
@@ -272,7 +276,7 @@ class BlockController extends CrudController
 
         $this->removeAndFlush($entity);
 
-        if (!$request->isXmlHttpRequest()) {
+        if (!$requestStack->isXmlHttpRequest()) {
             $this->addSuccessFlash(
                 'Block successfully deleted!',
                 array(
@@ -284,7 +288,7 @@ class BlockController extends CrudController
             return $this->redirect($this->generateUrl($this->getRouteNameForAction('index')));
         }
 
-        return $this->doDelete($request, $id);
+        return $this->doDelete($requestStack, $id);
     }
 
     public function getParentTemplate($template)
