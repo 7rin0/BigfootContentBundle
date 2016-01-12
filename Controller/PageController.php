@@ -10,6 +10,7 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Cache;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Component\EventDispatcher\GenericEvent;
 use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\HttpFoundation\RequestStack;
 
 /**
  * Page controller.
@@ -102,6 +103,7 @@ class PageController extends CrudController
     public function chooseAction(RequestStack $requestStack, $template)
     {
         $pTemplate = $this->getParentTemplate($template);
+        $requestStack = $requestStack->getCurrentRequest();
         $templates = $this->getTemplates($pTemplate);
         $page      = $templates['class'];
         $page      = new $page();
@@ -118,8 +120,8 @@ class PageController extends CrudController
 
         $this->getEventDispatcher()->dispatch(FormEvent::CREATE, new GenericEvent($form));
 
-        if ('POST' === $requestStack->getCurrentRequest()->getMethod()) {
-            $form->handleRequest($request);
+        if ('POST' === $requestStack->getMethod()) {
+            $form->handleRequest($requestStack);
 
             if ($form->isValid()) {
                 $this->persistAndFlush($page);
@@ -190,8 +192,8 @@ class PageController extends CrudController
             }
         }
 
-        if ('POST' === $requestStack->getCurrentRequest()->getMethod()) {
-            $form->handleRequest($request);
+        if ('POST' === $requestStack->getMethod()) {
+            $form->handleRequest($requestStack);
 
             if ($form->isValid()) {
                 for ($i = 1; $i <= 5; $i++) {
@@ -260,7 +262,7 @@ class PageController extends CrudController
             return $this->redirect($this->generateUrl($this->getRouteNameForAction('index')));
         }
 
-        return $this->doDelete($request, $id);
+        return $this->doDelete($requestStack, $id);
     }
 
     public function getParentTemplate($template)

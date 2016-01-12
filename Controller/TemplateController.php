@@ -7,6 +7,7 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Cache;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\HttpFoundation\RequestStack;
 
 /**
  * Template controller.
@@ -25,6 +26,7 @@ class TemplateController extends BaseController
     public function chooseAction(RequestStack $requestStack, $contentType = null)
     {
         $templates = $this->container->getParameter('bigfoot_content.templates.'.$contentType);
+        $requestStack = $requestStack->getCurrentRequest();
         $form      = $this->createForm(
             $this->get('bigfoot_content.form.type.template'),
             null,
@@ -41,19 +43,19 @@ class TemplateController extends BaseController
             'form_cancel' => 'admin_'.$contentType,
         );
 
-        if ('POST' === $requestStack->getCurrentRequest()->getMethod()) {
-            $form->handleRequest($request);
+        if ('POST' === $requestStack->getMethod()) {
+            $form->handleRequest($requestStack);
 
             if ($form->isValid()) {
                 $template = $form['template']->getData();
 
-                if ($request->isXmlHttpRequest()) {
+                if ($requestStack->isXmlHttpRequest()) {
                     return $this->renderAjax(true, 'Template selected!', $this->renderForm($contentType, $template)->getContent());
                 }
 
                 return $this->redirect($this->generateUrl('admin_'.$contentType.'_new', array('template' => $template)));
             } else {
-                if ($request->isXmlHttpRequest()) {
+                if ($requestStack->isXmlHttpRequest()) {
                     $content['form'] = $form->createView();
                     $content         = $this->renderView('BigfootContentBundle:Template:choose.html.twig', $content);
 

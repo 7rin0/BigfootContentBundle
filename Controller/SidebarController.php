@@ -8,6 +8,7 @@ use Doctrine\Common\Collections\ArrayCollection;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Cache;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\HttpFoundation\RequestStack;
 
 /**
  * Sidebar controller.
@@ -98,6 +99,7 @@ class SidebarController extends CrudController
     {
         $pTemplate = $this->getParentTemplate($template);
         $templates = $this->getTemplates($pTemplate);
+        $requestStack = $requestStack->getCurrentRequest();
         $sidebar   = $templates['class'];
         $sidebar   = new $sidebar();
         $sidebar->setTemplate($template);
@@ -112,8 +114,8 @@ class SidebarController extends CrudController
             )
         );
 
-        if ('POST' === $requestStack->getCurrentRequest()->getMethod()) {
-            $form->handleRequest($request);
+        if ('POST' === $requestStack->getMethod()) {
+            $form->handleRequest($requestStack);
 
             if ($form->isValid()) {
                 $this->persistAndFlush($sidebar);
@@ -141,6 +143,7 @@ class SidebarController extends CrudController
     public function editAction(RequestStack $requestStack, $id)
     {
         $sidebar = $this->getRepository($this->getEntity())->find($id);
+        $requestStack = $requestStack->getCurrentRequest();
 
         if (!$sidebar) {
             throw new NotFoundHttpException('Unable to find Sidebar entity.');
@@ -163,8 +166,8 @@ class SidebarController extends CrudController
             $dbBlocks->add($block);
         }
 
-        if ('POST' === $requestStack->getCurrentRequest()->getMethod()) {
-            $form->handleRequest($request);
+        if ('POST' === $requestStack->getMethod()) {
+            $form->handleRequest($requestStack);
 
             if ($form->isValid()) {
                 foreach ($dbBlocks as $block) {
@@ -199,6 +202,7 @@ class SidebarController extends CrudController
     public function deleteAction(RequestStack $requestStack, $id)
     {
         $entity = $this->getRepository($this->getEntity())->find($id);
+        $requestStack = $requestStack->getCurrentRequest();
 
         if (!$entity) {
             throw new NotFoundHttpException(sprintf('Unable to find %s entity.', $this->getEntity()));
@@ -206,7 +210,7 @@ class SidebarController extends CrudController
 
         $this->removeAndFlush($entity);
 
-        if (!$request->isXmlHttpRequest()) {
+        if (!$requestStack->isXmlHttpRequest()) {
             $this->addSuccessFlash(
                 'Sidebar successfully deleted!',
                 array(
@@ -218,7 +222,7 @@ class SidebarController extends CrudController
             return $this->redirect($this->generateUrl($this->getRouteNameForAction('index')));
         }
 
-        return $this->doDelete($request, $id);
+        return $this->doDelete($requestStack, $id);
     }
 
     public function getParentTemplate($template)
