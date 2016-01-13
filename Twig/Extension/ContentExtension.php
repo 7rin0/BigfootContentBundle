@@ -10,7 +10,7 @@ use Doctrine\ORM\EntityManager;
 use Symfony\Component\Routing\RouterInterface;
 use Twig_Environment;
 use Twig_Extension;
-use Twig_Function_Method;
+use Twig_SimpleFunction;
 
 /**
  * ContentExtension
@@ -36,10 +36,12 @@ class ContentExtension extends Twig_Extension
      */
     public function getFunctions()
     {
+        $options = array('is_safe' => array('html'));
+
         return array(
-            'display_page'    => new Twig_Function_Method($this, 'displayPage', array('is_safe' => array('html'))),
-            'display_sidebar' => new Twig_Function_Method($this, 'displaySidebar', array('is_safe' => array('html'))),
-            'display_block'   => new Twig_Function_Method($this, 'displayBlock', array('is_safe' => array('html'))),
+            'display_page'    => new Twig_SimpleFunction($this, 'displayPage', $options),
+            'display_sidebar' => new Twig_SimpleFunction($this, 'displaySidebar', $options),
+            'display_block'   => new Twig_SimpleFunction($this, 'displayBlock', $options),
         );
     }
 
