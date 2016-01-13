@@ -39,9 +39,9 @@ class ContentExtension extends Twig_Extension
         $options = array('is_safe' => array('html'));
 
         return array(
-            'display_page'    => new Twig_SimpleFunction($this, 'displayPage', $options),
-            'display_sidebar' => new Twig_SimpleFunction($this, 'displaySidebar', $options),
-            'display_block'   => new Twig_SimpleFunction($this, 'displayBlock', $options),
+            new \Twig_SimpleFunction('display_page', array($this, 'displayPage', $options)),
+            new \Twig_SimpleFunction('display_sidebar', array($this, 'displaySidebar', $options)),
+            new \Twig_SimpleFunction('display_block', array($this, 'displayBlock', $options)),
         );
     }
 
