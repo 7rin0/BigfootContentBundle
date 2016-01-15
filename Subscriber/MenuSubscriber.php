@@ -5,6 +5,8 @@ namespace Bigfoot\Bundle\ContentBundle\Subscriber;
 use Bigfoot\Bundle\CoreBundle\Event\MenuEvent;
 use Symfony\Component\EventDispatcher\EventSubscriberInterface;
 use Symfony\Component\EventDispatcher\GenericEvent;
+use Symfony\Component\ExpressionLanguage\Token;
+use Symfony\Component\Security\Core\Authentication\Token\Storage\TokenStorage;
 use Symfony\Component\Security\Core\Security;
 
 /**
@@ -20,7 +22,7 @@ class MenuSubscriber implements EventSubscriberInterface
     /**
      * @param Security $security
      */
-    public function __construct(Security $security)
+    public function __construct(TokenStorage $security)
     {
         $this->security = $security;
     }
