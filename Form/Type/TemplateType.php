@@ -3,6 +3,7 @@
 namespace Bigfoot\Bundle\ContentBundle\Form\Type;
 
 use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\Form\FormInterface;
 use Symfony\Component\Form\FormView;
@@ -25,7 +26,7 @@ class TemplateType extends AbstractType
         $builder
             ->add(
                 'template',
-                'choice',
+                ChoiceType::class,
                 array(
                     'required'    => true,
                     'expanded'    => true,
@@ -48,7 +49,7 @@ class TemplateType extends AbstractType
     /**
      * @param OptionsResolver $resolver
      */
-    public function setDefaultOptions(OptionsResolver $resolver)
+    public function configureOptions(OptionsResolver $resolver)
     {
         $resolver->setDefaults(
             array(
