@@ -3,6 +3,7 @@
 namespace Bigfoot\Bundle\ContentBundle\Form\Type\Block\Template;
 
 use Bigfoot\Bundle\ContentBundle\Entity\Attribute;
+use Doctrine\DBAL\Types\TextType;
 use Doctrine\ORM\EntityRepository;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
@@ -48,7 +49,7 @@ class TitleDescType extends AbstractType
             )
             ->add(
                 'title',
-                'text',
+                TextType::class,
                 array(
                     'attr' => array(
                         'data-placement' => 'bottom',
@@ -61,7 +62,7 @@ class TitleDescType extends AbstractType
             )
             ->add(
                 'slug',
-                'text',
+                TextType::class,
                 array(
                     'required'  => false,
                     'attr'      => array(
@@ -74,7 +75,7 @@ class TitleDescType extends AbstractType
                 )
             )
             ->add('description', 'bigfoot_richtext')
-            ->add('action'     , 'text', array('required' => false))
+            ->add('action'     , TextType::class, array('required' => false))
             ->add('translation', 'translatable_entity');
     }
 
