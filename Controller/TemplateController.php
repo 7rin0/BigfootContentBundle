@@ -6,6 +6,7 @@ use Bigfoot\Bundle\CoreBundle\Controller\BaseController;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Cache;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
+use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\RequestStack;
 
 /**
@@ -104,7 +105,7 @@ class TemplateController extends BaseController
         return $templates[$parent];
     }
 
-    public function renderForm($contentType, $template)
+    public function renderForm($contentType, $template, Request $request)
     {
         $contentForm = $this->getContentForm($contentType, $template);
         $action      = $this->generateUrl('admin_'.$contentType.'_new', array('template' => $template));
@@ -118,7 +119,7 @@ class TemplateController extends BaseController
                 'form_action' => $action,
                 'form_submit' => 'Submit',
                 'entity'      => $contentForm['content'],
-                'layout'      => $this->getRequest()->query->get('layout') ?: '',
+                'layout'      => $request->query->get('layout') ?: '',
             )
         );
     }
