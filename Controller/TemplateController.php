@@ -23,7 +23,7 @@ class TemplateController extends BaseController
      * @Route("/choose/{contentType}", name="admin_content_template_choose")
      * @Template()
      */
-    public function chooseAction(RequestStack $requestStack, $contentType = null)
+    public function chooseAction($contentType = null)
     {
         $templates = $this->container->getParameter('bigfoot_content.templates.'.$contentType);
         $requestStack = $requestStack->getCurrentRequest();
@@ -119,7 +119,7 @@ class TemplateController extends BaseController
                 'form_action' => $action,
                 'form_submit' => 'Submit',
                 'entity'      => $contentForm['content'],
-                'layout'      => $request->query->get('layout') ?: '',
+                'layout'      => $this->getRequestStack()->query->get('layout') ?: '',
             )
         );
     }

@@ -99,7 +99,7 @@ class PageController extends CrudController
      *
      * @Route("/new/{template}", name="admin_page_new")
      */
-    public function chooseAction(RequestStack $requestStack, $template)
+    public function chooseAction($template)
     {
         $pTemplate = $this->getParentTemplate($template);
         $requestStack = $requestStack->getCurrentRequest();
@@ -145,7 +145,7 @@ class PageController extends CrudController
      *
      * @Route("/edit/{id}", name="admin_page_edit")
      */
-    public function editAction(RequestStack $requestStack, $id)
+    public function editAction($id)
     {
         $page = $this->getRepository($this->getEntity())->find($id);
 
@@ -239,7 +239,7 @@ class PageController extends CrudController
      *
      * @Route("/delete/{id}", name="admin_page_delete")
      */
-    public function deleteAction(RequestStack $requestStack, $id)
+    public function deleteAction($id)
     {
         $entity = $this->getRepository($this->getEntity())->find($id);
         $requestStack = $requestStack->getCurrentRequest();

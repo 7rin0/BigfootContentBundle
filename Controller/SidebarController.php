@@ -94,7 +94,7 @@ class SidebarController extends CrudController
      *
      * @Route("/new/{template}", name="admin_sidebar_new")
      */
-    public function newAction(RequestStack $requestStack, $template)
+    public function newAction($template)
     {
         $pTemplate = $this->getParentTemplate($template);
         $templates = $this->getTemplates($pTemplate);
@@ -139,7 +139,7 @@ class SidebarController extends CrudController
      *
      * @Route("/edit/{id}", name="admin_sidebar_edit")
      */
-    public function editAction(RequestStack $requestStack, $id)
+    public function editAction($id)
     {
         $sidebar = $this->getRepository($this->getEntity())->find($id);
         $requestStack = $requestStack->getCurrentRequest();
@@ -198,7 +198,7 @@ class SidebarController extends CrudController
      *
      * @Route("/delete/{id}", name="admin_sidebar_delete")
      */
-    public function deleteAction(RequestStack $requestStack, $id)
+    public function deleteAction($id)
     {
         $entity = $this->getRepository($this->getEntity())->find($id);
         $requestStack = $requestStack->getCurrentRequest();

@@ -98,7 +98,7 @@ class BlockController extends CrudController
      *
      * @Route("/new/{template}", name="admin_block_new")
      */
-    public function newAction(RequestStack $requestStack, $template)
+    public function newAction($template)
     {
         $pTemplate = $this->getParentTemplate($template);
         $templates = $this->getTemplates('block', $pTemplate);
@@ -182,7 +182,7 @@ class BlockController extends CrudController
      *
      * @Route("/edit/{id}", name="admin_block_edit", options={"expose"=true})
      */
-    public function editAction(RequestStack $requestStack, $id)
+    public function editAction($id)
     {
         $block = $this->getRepository($this->getEntity())->find($id);
         $requestStack = $requestStack->getCurrentRequest();
@@ -264,7 +264,7 @@ class BlockController extends CrudController
      *
      * @Route("/delete/{id}", name="admin_block_delete")
      */
-    public function deleteAction(RequestStack $requestStack, $id)
+    public function deleteAction($id)
     {
         $entity = $this->getRepository($this->getEntity())->find($id);
         $requestStack = $requestStack->getCurrentRequest();
