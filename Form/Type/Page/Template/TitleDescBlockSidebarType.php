@@ -5,6 +5,7 @@ namespace Bigfoot\Bundle\ContentBundle\Form\Type\Page\Template;
 use Bigfoot\Bundle\ContentBundle\Entity\Attribute;
 use Doctrine\ORM\EntityRepository;
 use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\Extension\Core\Type\CollectionType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
@@ -79,7 +80,7 @@ class TitleDescBlockSidebarType extends AbstractType
             ->add('description', 'bigfoot_richtext')
             ->add(
                 'blocks',
-                'collection',
+                CollectionType::class,
                 array(
                     'label'        => false,
                     'prototype'    => true,
@@ -97,7 +98,7 @@ class TitleDescBlockSidebarType extends AbstractType
             )
             ->add(
                 'sidebars',
-                'collection',
+                CollectionType::class,
                 array(
                     'label'        => false,
                     'prototype'    => true,
