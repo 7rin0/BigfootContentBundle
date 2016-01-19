@@ -9,7 +9,6 @@ use Doctrine\Common\Collections\ArrayCollection;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Cache;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Component\EventDispatcher\GenericEvent;
-use Symfony\Component\HttpFoundation\RequestStack;
 
 /**
  * Page controller.
