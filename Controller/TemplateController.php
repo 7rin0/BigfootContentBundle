@@ -24,8 +24,8 @@ class TemplateController extends BaseController
      */
     public function chooseAction($contentType = null)
     {
-        $templates = $this->container->getParameter('bigfoot_content.templates.'.$contentType);
-        $requestStack = $requestStack->getCurrentRequest();
+        $templates = $this->getParameter('bigfoot_content.templates.'.$contentType);
+        $requestStack = $this->getRequestStack();
         $form      = $this->createForm(
             $this->get('bigfoot_content.form.type.template'),
             null,
@@ -99,7 +99,7 @@ class TemplateController extends BaseController
 
     public function getTemplates($contentType, $parent)
     {
-        $templates = $this->container->getParameter('bigfoot_content.templates.'.$contentType);
+        $templates = $this->getParameter('bigfoot_content.templates.'.$contentType);
 
         return $templates[$parent];
     }

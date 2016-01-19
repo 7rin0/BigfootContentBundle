@@ -103,7 +103,7 @@ class BlockController extends CrudController
         $templates = $this->getTemplates('block', $pTemplate);
         $block     = $templates['class'];
         $block     = new $block();
-        $requestStack = $requestStack->getCurrentRequest();
+        $requestStack = $this->getRequestStack();
         $block->setTemplate($template);
 
         $action = $this->generateUrl('admin_block_new', array('template' => $template));
@@ -184,7 +184,7 @@ class BlockController extends CrudController
     public function editAction($id)
     {
         $block = $this->getRepository($this->getEntity())->find($id);
-        $requestStack = $requestStack->getCurrentRequest();
+        $requestStack = $this->getRequestStack();
 
         if (!$block) {
             throw new NotFoundHttpException('Unable to find block entity.');
@@ -266,7 +266,7 @@ class BlockController extends CrudController
     public function deleteAction($id)
     {
         $entity = $this->getRepository($this->getEntity())->find($id);
-        $requestStack = $requestStack->getCurrentRequest();
+        $requestStack = $this->getRequestStack();
 
         if (!$entity) {
             throw new NotFoundHttpException(sprintf('Unable to find %s entity.', $this->getEntity()));
@@ -299,7 +299,7 @@ class BlockController extends CrudController
 
     public function getTemplates($contentType, $parent)
     {
-        $templates = $this->container->getParameter('bigfoot_content.templates.'.$contentType);
+        $templates = $this->getParameter('bigfoot_content.templates.'.$contentType);
 
         return $templates[$parent];
     }

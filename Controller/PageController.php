@@ -101,7 +101,7 @@ class PageController extends CrudController
     public function chooseAction($template)
     {
         $pTemplate = $this->getParentTemplate($template);
-        $requestStack = $requestStack->getCurrentRequest();
+        $requestStack = $this->getRequestStack();
         $templates = $this->getTemplates($pTemplate);
         $page      = $templates['class'];
         $page      = new $page();
@@ -241,7 +241,7 @@ class PageController extends CrudController
     public function deleteAction($id)
     {
         $entity = $this->getRepository($this->getEntity())->find($id);
-        $requestStack = $requestStack->getCurrentRequest();
+        $requestStack = $this->getRequestStack();
 
         if (!$entity) {
             throw new NotFoundHttpException(sprintf('Unable to find %s entity.', $this->getEntity()));
@@ -274,7 +274,7 @@ class PageController extends CrudController
 
     public function getTemplates($parent)
     {
-        $templates = $this->container->getParameter('bigfoot_content.templates.page');
+        $templates = $this->getParameter('bigfoot_content.templates.page');
 
         return $templates[$parent];
     }

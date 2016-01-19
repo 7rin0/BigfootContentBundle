@@ -97,7 +97,7 @@ class SidebarController extends CrudController
     {
         $pTemplate = $this->getParentTemplate($template);
         $templates = $this->getTemplates($pTemplate);
-        $requestStack = $requestStack->getCurrentRequest();
+        $requestStack = $this->getRequestStack();
         $sidebar   = $templates['class'];
         $sidebar   = new $sidebar();
         $sidebar->setTemplate($template);
@@ -141,7 +141,7 @@ class SidebarController extends CrudController
     public function editAction($id)
     {
         $sidebar = $this->getRepository($this->getEntity())->find($id);
-        $requestStack = $requestStack->getCurrentRequest();
+        $requestStack = $this->getRequestStack();
 
         if (!$sidebar) {
             throw new NotFoundHttpException('Unable to find Sidebar entity.');
@@ -200,7 +200,7 @@ class SidebarController extends CrudController
     public function deleteAction($id)
     {
         $entity = $this->getRepository($this->getEntity())->find($id);
-        $requestStack = $requestStack->getCurrentRequest();
+        $requestStack = $this->getRequestStack();
 
         if (!$entity) {
             throw new NotFoundHttpException(sprintf('Unable to find %s entity.', $this->getEntity()));
@@ -233,7 +233,7 @@ class SidebarController extends CrudController
 
     public function getTemplates($parent)
     {
-        $templates = $this->container->getParameter('bigfoot_content.templates.sidebar');
+        $templates = $this->getParameter('bigfoot_content.templates.sidebar');
 
         return $templates[$parent];
     }
