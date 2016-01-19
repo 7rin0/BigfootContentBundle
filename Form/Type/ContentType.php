@@ -4,7 +4,7 @@ namespace Bigfoot\Bundle\ContentBundle\Form\Type;
 
 use Bigfoot\Bundle\ContentBundle\Entity\Page;
 use Bigfoot\Bundle\ContentBundle\Entity\Sidebar;
-use Doctrine\DBAL\Types\TextType;
+use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\CheckboxType;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;

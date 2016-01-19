@@ -3,7 +3,7 @@
 namespace Bigfoot\Bundle\ContentBundle\Form\Type\Block\Template;
 
 use Bigfoot\Bundle\ContentBundle\Entity\Attribute;
-use Doctrine\DBAL\Types\TextType;
+use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Doctrine\ORM\EntityRepository;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
