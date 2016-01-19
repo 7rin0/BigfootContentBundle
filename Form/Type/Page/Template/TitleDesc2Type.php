@@ -6,6 +6,7 @@ use Bigfoot\Bundle\ContentBundle\Entity\Attribute;
 use Doctrine\DBAL\Types\TextType;
 use Doctrine\ORM\EntityRepository;
 use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
@@ -76,7 +77,7 @@ class TitleDesc2Type extends AbstractType
                 )
             )
             ->add('seoTitle', TextType::class, array('required' => false))
-            ->add('seoDescription', 'textarea', array('required' => false))
+            ->add('seoDescription', TextareaType::class, array('required' => false))
             ->add('description', 'bigfoot_richtext')
             ->add('description2', 'bigfoot_richtext')
             ->add('translation', 'translatable_entity');

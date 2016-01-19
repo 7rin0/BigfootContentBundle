@@ -7,6 +7,7 @@ use Doctrine\DBAL\Types\TextType;
 use Doctrine\ORM\EntityRepository;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\CollectionType;
+use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
@@ -77,7 +78,7 @@ class TitleDescBlockType extends AbstractType
                 )
             )
             ->add('seoTitle', TextType::class, array('required' => false))
-            ->add('seoDescription', 'textarea', array('required' => false))
+            ->add('seoDescription', TextareaType::class, array('required' => false))
             ->add('description', 'bigfoot_richtext')
             ->add(
                 'blocks',
