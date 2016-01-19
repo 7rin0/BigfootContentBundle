@@ -5,6 +5,7 @@ namespace Bigfoot\Bundle\ContentBundle\Form\Type;
 use Bigfoot\Bundle\ContentBundle\Entity\Page;
 use Bigfoot\Bundle\ContentBundle\Entity\Sidebar;
 use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\Extension\Core\Type\CheckboxType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
@@ -41,7 +42,7 @@ class ContentType extends AbstractType
                     )
                 )
             )
-            ->add('active', 'checkbox', array('required' => false))
+            ->add('active', CheckboxType::class, array('required' => false))
         ;
     }
 
