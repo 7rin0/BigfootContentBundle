@@ -2,6 +2,7 @@
 
 namespace Bigfoot\Bundle\ContentBundle\Controller;
 
+use Bigfoot\Bundle\ContentBundle\Form\Type\TemplateType;
 use Bigfoot\Bundle\CoreBundle\Controller\BaseController;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Cache;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
@@ -25,10 +26,10 @@ class TemplateController extends BaseController
      */
     public function chooseAction($contentType = null)
     {
-        $templates = $this->getParameter('bigfoot_content.templates.'.$contentType);
         $requestStack = $this->getRequestStack();
+        $templates = $this->getParameter('bigfoot_content.templates.'.$contentType);
         $form      = $this->createForm(
-            $this->get('bigfoot_content.form.type.template'),
+            TemplateType::class,
             null,
             array(
                 'data' => $templates,
@@ -80,7 +81,7 @@ class TemplateController extends BaseController
         return array(
             'content' => $content,
             'form'    => $this->createForm(
-                $this->get('bigfoot_content.form.type.'.$contentType.'_template_'.$pTemplate),
+                get_class($this->get('bigfoot_content.form.type.'.$contentType.'_template_'.$pTemplate)),
                 $content,
                 array(
                     'template'  => $template,

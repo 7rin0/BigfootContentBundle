@@ -104,7 +104,7 @@ class SidebarController extends CrudController
 
         $action = $this->generateUrl('admin_sidebar_new', array('template' => $template));
         $form   = $this->createForm(
-            $this->get('bigfoot_content.form.type.sidebar_template_'.$pTemplate),
+            get_class($this->get('bigfoot_content.form.type.sidebar_template_'.$pTemplate)),
             $sidebar,
             array(
                 'template'  => $template,
@@ -150,7 +150,7 @@ class SidebarController extends CrudController
         $templates = $this->getTemplates($sidebar->getParentTemplate());
         $action    = $this->generateUrl('admin_sidebar_edit', array('id' => $sidebar->getId()));
         $form      = $this->createForm(
-            $this->get('bigfoot_content.form.type.sidebar_template_'.$sidebar->getParentTemplate()),
+            get_class($this->get('bigfoot_content.form.type.sidebar_template_'.$sidebar->getParentTemplate())),
             $sidebar,
             array(
                 'template'  => $sidebar->getSlugTemplate(),

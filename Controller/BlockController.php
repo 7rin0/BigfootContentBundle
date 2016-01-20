@@ -108,7 +108,7 @@ class BlockController extends CrudController
 
         $action = $this->generateUrl('admin_block_new', array('template' => $template));
         $form   = $this->createForm(
-            $this->get('bigfoot_content.form.type.block_template_'.$pTemplate),
+            get_class($this->get('bigfoot_content.form.type.block_template_'.$pTemplate)),
             $block,
             array(
                 'template'  => $template,
@@ -136,7 +136,7 @@ class BlockController extends CrudController
                     $contentEntity = new $contentEntity();
 
                     $contentForm   = $this->createForm(
-                        $this->get('bigfoot_content.form.type.'.$contentType.'_template_'.$pTemplate),
+                        get_class($this->get('bigfoot_content.form.type.'.$contentType.'_template_'.$pTemplate)),
                         $contentEntity,
                         array(
                             'template'  => $qTemplate,
@@ -194,7 +194,7 @@ class BlockController extends CrudController
         $action    = $this->generateUrl('admin_block_edit', array('id' => $block->getId()));
 
         $form = $this->createForm(
-            $this->get('bigfoot_content.form.type.block_'.$block->getParentTemplate()),
+            get_class($this->get('bigfoot_content.form.type.block_'.$block->getParentTemplate())),
             $block,
             array(
                 'template'  => $block->getSlugTemplate(),
@@ -222,7 +222,7 @@ class BlockController extends CrudController
                     $contentEntity = new $contentEntity();
 
                     $contentForm   = $this->createForm(
-                        $this->get('bigfoot_content.form.type.'.$contentType.'_template_'.$pTemplate),
+                        get_class($this->get('bigfoot_content.form.type.'.$contentType.'_template_'.$pTemplate)),
                         $contentEntity,
                         array(
                             'template'  => $qTemplate,
