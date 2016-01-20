@@ -3,6 +3,7 @@
 namespace Bigfoot\Bundle\ContentBundle\Form\Type\Sidebar\Template;
 
 use Bigfoot\Bundle\ContentBundle\Entity\Attribute;
+use Bigfoot\Bundle\ContentBundle\Form\Type\ContentType;
 use Doctrine\ORM\EntityRepository;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
@@ -21,7 +22,7 @@ class BlockType extends AbstractType
         $builder
             ->add(
                 'content',
-                'admin_content',
+                ContentType::class,
                 array(
                     'data'      => $options['data'],
                     'template'  => $options['template'],

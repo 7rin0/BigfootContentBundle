@@ -3,6 +3,7 @@
 namespace Bigfoot\Bundle\ContentBundle\Form\Type\Page\Template;
 
 use Bigfoot\Bundle\ContentBundle\Entity\Attribute;
+use Bigfoot\Bundle\ContentBundle\Form\Type\ContentType;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Doctrine\ORM\EntityRepository;
@@ -23,7 +24,7 @@ class TitleDesc2BlockType extends AbstractType
         $builder
             ->add(
                 'content',
-                'admin_content',
+                ContentType::class,
                 array(
                     'data'      => $options['data'],
                     'template'  => $options['template'],

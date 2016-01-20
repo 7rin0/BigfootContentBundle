@@ -62,12 +62,4 @@ class ContentType extends AbstractType
             )
         );
     }
-
-    /**
-     * @return string
-     */
-    public function getName()
-    {
-        return 'admin_content';
-    }
 }
