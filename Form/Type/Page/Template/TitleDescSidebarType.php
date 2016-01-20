@@ -89,8 +89,8 @@ class TitleDescSidebarType extends AbstractType
                     'prototype'    => true,
                     'allow_add'    => true,
                     'allow_delete' => true,
-                    'type'         => 'admin_page_sidebar',
-                    'options'      => array(
+                    'entry_type'         => 'admin_page_sidebar',
+                    'entry_options'      => array(
                         'page' => $options['data'],
                     ),
                     'attr' => array(

@@ -91,8 +91,8 @@ class TitleDesc2Block2Type extends AbstractType
                     'prototype'    => true,
                     'allow_add'    => true,
                     'allow_delete' => true,
-                    'type'         => 'admin_page_block',
-                    'options'      => array(
+                    'entry_type'         => 'admin_page_block',
+                    'entry_options'      => array(
                         'page'       => $options['data'],
                         'data_class' => 'Bigfoot\Bundle\ContentBundle\Entity\Page\Block',
                     ),
@@ -109,8 +109,8 @@ class TitleDesc2Block2Type extends AbstractType
                     'prototype'    => true,
                     'allow_add'    => true,
                     'allow_delete' => true,
-                    'type'         => 'admin_page_block',
-                    'options'      => array(
+                    'entry_type'         => 'admin_page_block',
+                    'entry_options'      => array(
                         'page'       => $options['data'],
                         'data_class' => 'Bigfoot\Bundle\ContentBundle\Entity\Page\Block2',
                     ),
