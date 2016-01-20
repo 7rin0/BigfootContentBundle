@@ -3,6 +3,7 @@
 namespace Bigfoot\Bundle\ContentBundle\Form\Type\Block\Template;
 
 use Bigfoot\Bundle\ContentBundle\Entity\Attribute;
+use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Doctrine\ORM\EntityRepository;
 use Symfony\Component\Form\AbstractType;
@@ -29,7 +30,7 @@ class TitleDescMediaType extends AbstractType
             )
             ->add(
                 'attributes',
-                'entity',
+                EntityType::class,
                 array(
                     'class'     => 'BigfootContentBundle:Attribute',
                     'query_builder' => function(EntityRepository $er) {

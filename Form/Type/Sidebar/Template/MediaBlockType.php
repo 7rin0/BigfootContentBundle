@@ -4,6 +4,7 @@ namespace Bigfoot\Bundle\ContentBundle\Form\Type\Sidebar\Template;
 
 use Bigfoot\Bundle\ContentBundle\Entity\Attribute;
 use Doctrine\ORM\EntityRepository;
+use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\CollectionType;
 use Symfony\Component\Form\FormBuilderInterface;
@@ -29,7 +30,7 @@ class MediaBlockType extends AbstractType
             )
             ->add(
                 'attributes',
-                'entity',
+                EntityType::class,
                 array(
                     'class'     => 'BigfootContentBundle:Attribute',
                     'query_builder' => function(EntityRepository $er) {

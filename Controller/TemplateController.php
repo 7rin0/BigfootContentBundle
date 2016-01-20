@@ -6,6 +6,7 @@ use Bigfoot\Bundle\CoreBundle\Controller\BaseController;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Cache;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
+use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\HttpFoundation\Request;
 
 /**
@@ -117,7 +118,7 @@ class TemplateController extends BaseController
                 'form_title'  => $this->getTranslator()->trans($contentType.' creation'),
                 'form_action' => $action,
                 'form_submit' => 'Submit',
-                'entity'      => $contentForm['content'],
+                EntityType::class      => $contentForm['content'],
                 'layout'      => $this->getRequestStack()->query->get('layout') ?: '',
             )
         );
