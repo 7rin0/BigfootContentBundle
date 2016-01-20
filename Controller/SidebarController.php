@@ -105,7 +105,7 @@ class SidebarController extends CrudController
         $action = $this->generateUrl('admin_sidebar_new', array('template' => $template));
         $form   = $this->createForm(
             get_class($this->get('bigfoot_content.form.type.sidebar_template_'.$pTemplate)),
-            $sidebar,
+            get_class($sidebar),
             array(
                 'template'  => $template,
                 'templates' => $templates

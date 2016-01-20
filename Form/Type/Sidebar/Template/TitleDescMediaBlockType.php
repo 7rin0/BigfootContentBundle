@@ -74,7 +74,7 @@ class TitleDescMediaBlockType extends AbstractType
                     'prototype'    => true,
                     'allow_add'    => true,
                     'allow_delete' => true,
-                    'entry_type'         => 'admin_sidebar_block',
+                    'entry_type'         => BlockType::class,
                     'entry_options'      => array(
                         'sidebar'    => $options['data'],
                         'data_class' => 'Bigfoot\Bundle\ContentBundle\Entity\Sidebar\Block',

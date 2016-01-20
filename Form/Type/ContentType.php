@@ -19,6 +19,8 @@ class ContentType extends AbstractType
      */
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
+        dump($options);
+        dump($options['data']);
         $builder
             ->add(
                 'template',
