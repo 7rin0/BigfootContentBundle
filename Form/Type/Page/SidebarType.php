@@ -95,8 +95,8 @@ class SidebarType extends AbstractType
     /**
      * @return string
      */
-    public function getName()
+    public function getBlockPrefix()
     {
-        return 'admin_page_sidebar';
+        return 'sidebar';
     }
 }

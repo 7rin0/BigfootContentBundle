@@ -19,8 +19,6 @@ class ContentType extends AbstractType
      */
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
-        dump($options);
-        dump($options['data']);
         $builder
             ->add(
                 'template',
@@ -46,8 +44,7 @@ class ContentType extends AbstractType
                     )
                 )
             )
-            ->add('active', CheckboxType::class, array('required' => false))
-        ;
+            ->add('active', CheckboxType::class, array('required' => false));
     }
 
     /**
@@ -63,5 +60,10 @@ class ContentType extends AbstractType
                 'label'         => false,
             )
         );
+    }
+
+    public function getParent()
+    {
+        return ChoiceType::class;
     }
 }

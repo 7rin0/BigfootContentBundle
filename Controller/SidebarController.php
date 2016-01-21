@@ -3,10 +3,11 @@
 namespace Bigfoot\Bundle\ContentBundle\Controller;
 
 use Bigfoot\Bundle\CoreBundle\Controller\CrudController;
-use Bigfoot\Bundle\CoreBundle\Util\StringManager;
+use Bigfoot\Bundle\CoreBundle\Util\StringUtil;
 use Doctrine\Common\Collections\ArrayCollection;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Cache;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
+use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 
 /**
  * Sidebar controller.
@@ -105,7 +106,7 @@ class SidebarController extends CrudController
         $action = $this->generateUrl('admin_sidebar_new', array('template' => $template));
         $form   = $this->createForm(
             get_class($this->get('bigfoot_content.form.type.sidebar_template_'.$pTemplate)),
-            get_class($sidebar),
+            $sidebar,
             array(
                 'template'  => $template,
                 'templates' => $templates

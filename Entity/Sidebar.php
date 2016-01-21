@@ -424,7 +424,7 @@ class Sidebar extends Content
         return $this->pageSidebars5;
     }
 
-        /**
+    /**
      * @param Attribute $attribute
      */
     public function addAttribute($attribute)

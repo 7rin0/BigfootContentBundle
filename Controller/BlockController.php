@@ -5,7 +5,7 @@ namespace Bigfoot\Bundle\ContentBundle\Controller;
 use Bigfoot\Bundle\ContentBundle\Entity\Page;
 use Bigfoot\Bundle\ContentBundle\Entity\Sidebar;
 use Bigfoot\Bundle\CoreBundle\Controller\CrudController;
-use Bigfoot\Bundle\CoreBundle\Util\StringManager;
+use Bigfoot\Bundle\CoreBundle\Util\StringUtil;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Cache;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 
