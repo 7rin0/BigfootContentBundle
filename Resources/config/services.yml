@@ -108,7 +108,7 @@ services:
 
     # Page Template TitleDesc2 Type
     bigfoot_content.form.type.page_template_title_desc2:
-        class: Bigfoot\Bundle\ContentBundle\Form\Type\Page\Template\TitleDes2cType
+        class: Bigfoot\Bundle\ContentBundle\Form\Type\Page\Template\TitleDesc2Type
         tags:
             - { name: form.type2 }
 
@@ -117,12 +117,6 @@ services:
         class: Bigfoot\Bundle\ContentBundle\Form\Type\Page\Template\TitleDesc2MediaType
         tags:
             - { name: form.type2_media }
-
-    # Page Template TitleDesc2Block Type
-    bigfoot_content.form.type.page_template_title_desc2_block:
-        class: Bigfoot\Bundle\ContentBundle\Form\Type\Page\Template\TitleDesc2BlockType
-        tags:
-            - { name: form.type2_block }
 
     # Page Template TitleDesc2Block2 Type
     bigfoot_content.form.type.page_template_title_desc2_block:
