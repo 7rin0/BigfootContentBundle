@@ -63,9 +63,11 @@ class TemplateType extends AbstractType
     {
         $nTemplates = array();
 
-        foreach ($templates as $key => $template) {
-            foreach ($template['sub_templates'] as $subTemplates => $label) {
-                $nTemplates[$key][$subTemplates] = $label;
+        if(isset($templates['sub_templates'])) {
+            foreach ($templates as $key => $template) {
+                foreach ($template['sub_templates'] as $subTemplates => $label) {
+                    $nTemplates[$key][$subTemplates] = $label;
+                }
             }
         }
 
@@ -83,8 +85,10 @@ class TemplateType extends AbstractType
                 "label" => isset($template['label']) ? $template['label'] : '',
                 "subTemplates" => array()
             );
-            foreach ($template['sub_templates'] as $subTemplates => $label) {
-                $nTemplates[$key]['subTemplates'][$subTemplates] = $label;
+            if(isset($templates['sub_templates'])) {
+                foreach ($template['sub_templates'] as $subTemplates => $label) {
+                    $nTemplates[$key]['subTemplates'][$subTemplates] = $label;
+                }
             }
         }
 

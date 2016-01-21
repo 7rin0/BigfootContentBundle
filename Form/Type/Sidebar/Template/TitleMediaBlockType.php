@@ -75,7 +75,7 @@ class TitleMediaBlockType extends AbstractType
                     'allow_delete' => true,
                     'entry_type'         => BlockType::class,
                     'entry_options'      => array(
-                        'sidebar'    => $options['data'],
+                        'data'    => $options['data'],
                         'data_class' => 'Bigfoot\Bundle\ContentBundle\Entity\Sidebar\Block',
                     ),
                     'attr' => array(

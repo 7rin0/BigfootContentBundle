@@ -128,8 +128,10 @@ abstract class Content
     {
         $nTemplates = array();
 
-        foreach ($templates['sub_templates'] as $subTemplates => $label) {
-            $nTemplates[$subTemplates] = $label;
+        if(isset($templates['sub_templates'])) {
+            foreach ($templates['sub_templates'] as $subTemplates => $label) {
+                $nTemplates[$subTemplates] = $label;
+            }
         }
 
         asort($nTemplates);

@@ -69,8 +69,10 @@ class BlockType extends AbstractType
         $nTemplates = array();
 
         foreach ($templates as $key => $template) {
-            foreach ($template['sub_templates'] as $subTemplates => $label) {
-                $nTemplates[$key.'/'.$subTemplates] = $label;
+            if($template['sub_templates']) {
+                foreach ($template['sub_templates'] as $subTemplates => $label) {
+                    $nTemplates[$key . '/' . $subTemplates] = $label;
+                }
             }
         }
 
