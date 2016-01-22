@@ -2,10 +2,8 @@
 
 {% block form %}
     {%- form_theme form bigfoot_theme_bundle ~ ':content/form/template:choose.html.twig' -%}
-    {% dump(bigfoot_theme_bundle) %}
     <h5>Choose your template</h5>
     <hr />
-{% dump(form) %}
     <div id="templates" class="js-masonry" data-masonry-options='{"itemSelector": ".item-template"}'>
     {% for templates in form.vars.templates %}
         <div class="item-template w{{ templates.subTemplates|length }} templates-container">

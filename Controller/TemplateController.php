@@ -36,6 +36,7 @@ class TemplateController extends BaseController
                 'contentType' => $contentType
             )
         );
+
         $content   = array(
             'form_method' => 'POST',
             'form_title'  => $this->getTranslator()->trans('%entity% creation', array('%entity%' => ucfirst($contentType))),

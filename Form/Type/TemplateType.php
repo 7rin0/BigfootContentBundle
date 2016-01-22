@@ -20,8 +20,11 @@ class TemplateType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $templates = $options['data'];
-
         $this->toArrayTemplates($templates);
+
+        dump($templates);
+        dump($this->templates);
+        dump($this->toStringTemplates($templates));
 
         $builder
             ->add(
@@ -63,8 +66,8 @@ class TemplateType extends AbstractType
     {
         $nTemplates = array();
 
-        if(isset($templates['sub_templates'])) {
-            foreach ($templates as $key => $template) {
+        foreach ($templates as $key => $template) {
+            if(isset($template['sub_templates'])) {
                 foreach ($template['sub_templates'] as $subTemplates => $label) {
                     $nTemplates[$key][$subTemplates] = $label;
                 }
@@ -85,7 +88,7 @@ class TemplateType extends AbstractType
                 "label" => isset($template['label']) ? $template['label'] : '',
                 "subTemplates" => array()
             );
-            if(isset($templates['sub_templates'])) {
+            if(isset($template['sub_templates'])) {
                 foreach ($template['sub_templates'] as $subTemplates => $label) {
                     $nTemplates[$key]['subTemplates'][$subTemplates] = $label;
                 }
@@ -93,7 +96,6 @@ class TemplateType extends AbstractType
         }
 
         asort($nTemplates);
-
         $this->templates = $nTemplates;
 
         return $nTemplates;
