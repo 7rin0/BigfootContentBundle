@@ -10,16 +10,16 @@
             "email": "g.manen@c2is.fr"
         },
         {
+          "name": "Luis SEVERINO",
+          "email": "lfs.severino@gmail.com"
+        },
+        {
             "name": "Sébastien Huot",
             "email": "s.huot@c2is.fr"
         },
         {
             "name": "Yehya Latti",
             "email": "y.latti@c2is.fr"
-        },
-        {
-            "name": "Luis SEVERINO",
-            "email": "lfs.severino@gmail.com"
         }
     ],
     "require": {
