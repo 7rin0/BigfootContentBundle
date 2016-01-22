@@ -119,7 +119,7 @@ class TemplateController extends BaseController
                 'form_title'  => $this->getTranslator()->trans($contentType.' creation'),
                 'form_action' => $action,
                 'form_submit' => 'Submit',
-                EntityType::class      => $contentForm['content'],
+                'entity'      => $contentForm['content'],
                 'layout'      => $this->getRequestStack()->query->get('layout') ?: '',
             )
         );
