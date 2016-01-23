@@ -22,10 +22,6 @@ class TemplateType extends AbstractType
         $templates = $options['data'];
         $this->toArrayTemplates($templates);
 
-        dump($templates);
-        dump($this->templates);
-        dump($this->toStringTemplates($templates));
-
         $builder
             ->add(
                 'template',
@@ -36,6 +32,7 @@ class TemplateType extends AbstractType
                     'multiple'    => false,
                     'label'       => false,
                     'choices'     => $this->toStringTemplates($templates),
+                    'choices_as_values' => true,
                     'constraints' => array(
                         new Assert\NotNull(),
                     )
@@ -65,11 +62,10 @@ class TemplateType extends AbstractType
     public function toStringTemplates($templates)
     {
         $nTemplates = array();
-
         foreach ($templates as $key => $template) {
             if(isset($template['sub_templates'])) {
-                foreach ($template['sub_templates'] as $subTemplates => $label) {
-                    $nTemplates[$key][$subTemplates] = $label;
+                foreach ($template['sub_templates'] as $label => $name) {
+                    $nTemplates[$key][$name] = $label;
                 }
             }
         }
@@ -99,5 +95,13 @@ class TemplateType extends AbstractType
         $this->templates = $nTemplates;
 
         return $nTemplates;
+    }
+
+    /**
+     * @return string
+     */
+    public function getName()
+    {
+        return 'admin_template';
     }
 }

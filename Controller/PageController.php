@@ -146,6 +146,7 @@ class PageController extends CrudController
      */
     public function editAction($id)
     {
+        $requestStack = $this->getRequestStack();
         $page = $this->getRepository($this->getEntity())->find($id);
 
         if (!$page) {
