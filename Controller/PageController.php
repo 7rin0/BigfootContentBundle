@@ -108,7 +108,7 @@ class PageController extends CrudController
         $page->setTemplate($template);
         $action = $this->generateUrl('admin_page_new', array('template' => $template));
         $form   = $this->createForm(
-            get_class($this->get('bigfoot_content.form.type.page_'.$pTemplate)),
+            get_class($this->get('bigfoot_content.form.type.page_template_'.$pTemplate)),
             $page,
             array(
                 'template'  => $template,

@@ -4,6 +4,7 @@ namespace Bigfoot\Bundle\ContentBundle\Form\Type\Block\Template;
 
 use Bigfoot\Bundle\ContentBundle\Entity\Attribute;
 use Bigfoot\Bundle\ContentBundle\Form\Type\ContentType;
+use Bigfoot\Bundle\CoreBundle\Form\Type\BigfootRichtextType;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Doctrine\ORM\EntityRepository;
@@ -76,7 +77,7 @@ class TitleDescType extends AbstractType
                     ),
                 )
             )
-            ->add('description', 'bigfoot_richtext')
+            ->add('description', BigfootRichtextType::class)
             ->add('action'     , TextType::class, array('required' => false))
             ->add('translation', 'translatable_entity');
     }

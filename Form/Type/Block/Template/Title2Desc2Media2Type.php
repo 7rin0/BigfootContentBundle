@@ -4,6 +4,7 @@ namespace Bigfoot\Bundle\ContentBundle\Form\Type\Block\Template;
 
 use Bigfoot\Bundle\ContentBundle\Entity\Attribute;
 use Bigfoot\Bundle\ContentBundle\Form\Type\ContentType;
+use Bigfoot\Bundle\CoreBundle\Form\Type\BigfootRichtextType;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Doctrine\ORM\EntityRepository;
@@ -63,7 +64,7 @@ class Title2Desc2Media2Type extends AbstractType
                     )
                 )
             )
-            ->add('description', 'bigfoot_richtext')
+            ->add('description', BigfootRichtextType::class)
             ->add(
                 'title2',
                 TextType::class,
@@ -78,7 +79,7 @@ class Title2Desc2Media2Type extends AbstractType
                     )
                 )
             )
-            ->add('description2', 'bigfoot_richtext')
+            ->add('description2', BigfootRichtextType::class)
             ->add('media', 'bigfoot_media')
             ->add('media2', 'bigfoot_media')
             ->add('action', TextType::class, array('required' => false))

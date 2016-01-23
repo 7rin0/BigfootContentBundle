@@ -4,6 +4,7 @@ namespace Bigfoot\Bundle\ContentBundle\Form\Type\Page\Template;
 
 use Bigfoot\Bundle\ContentBundle\Entity\Attribute;
 use Bigfoot\Bundle\ContentBundle\Form\Type\ContentType;
+use Bigfoot\Bundle\CoreBundle\Form\Type\BigfootRichtextType;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Doctrine\ORM\EntityRepository;
@@ -80,7 +81,7 @@ class TitleDescMediaType extends AbstractType
             )
             ->add('seoTitle', TextType::class, array('required' => false))
             ->add('seoDescription', TextareaType::class, array('required' => false))
-            ->add('description', 'bigfoot_richtext')
+            ->add('description', BigfootRichtextType::class)
             ->add('media', 'bigfoot_media')
             ->add('translation', 'translatable_entity');
     }
