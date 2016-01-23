@@ -3,7 +3,6 @@
 namespace Bigfoot\Bundle\ContentBundle\Controller;
 
 use Bigfoot\Bundle\CoreBundle\Controller\CrudController;
-use Bigfoot\Bundle\CoreBundle\Util\StringUtil;
 use Doctrine\Common\Collections\ArrayCollection;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Cache;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;

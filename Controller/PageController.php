@@ -4,11 +4,9 @@ namespace Bigfoot\Bundle\ContentBundle\Controller;
 
 use Bigfoot\Bundle\CoreBundle\Controller\CrudController;
 use Bigfoot\Bundle\CoreBundle\Event\FormEvent;
-use Bigfoot\Bundle\CoreBundle\Util\StringUtil;
 use Doctrine\Common\Collections\ArrayCollection;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Cache;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
-use Symfony\Component\Config\Definition\Exception\Exception;
 use Symfony\Component\EventDispatcher\GenericEvent;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 
@@ -118,7 +116,6 @@ class PageController extends CrudController
                 'templates' => $templates,
             )
         );
-        die();
 
         $this->getEventDispatcher()->dispatch(FormEvent::CREATE, new GenericEvent($form));
 
