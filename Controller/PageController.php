@@ -100,8 +100,8 @@ class PageController extends CrudController
      */
     public function chooseAction($template)
     {
-        $pTemplate = $this->getParentTemplate($template);
         $requestStack = $this->getRequestStack();
+        $pTemplate = $this->getParentTemplate($template);
         $templates = $this->getTemplates($pTemplate);
         $page      = $templates['class'];
         $page      = new $page();
@@ -120,7 +120,12 @@ class PageController extends CrudController
         $this->getEventDispatcher()->dispatch(FormEvent::CREATE, new GenericEvent($form));
 
         if ('POST' === $requestStack->getMethod()) {
+
             $form->handleRequest($requestStack);
+
+            dump($form->isValid());
+            dump($form->getErrors(true, false));
+            dump($form->getData());
 
             if ($form->isValid()) {
                 $this->persistAndFlush($page);

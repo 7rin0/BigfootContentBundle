@@ -129,8 +129,8 @@ abstract class Content
         $nTemplates = array();
 
         if(isset($templates['sub_templates'])) {
-            foreach ($templates['sub_templates'] as $subTemplates => $label) {
-                $nTemplates[$subTemplates] = $label;
+            foreach ($templates['sub_templates'] as $label => $name) {
+                $nTemplates[$name] = $label;
             }
         }
 

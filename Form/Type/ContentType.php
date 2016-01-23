@@ -67,4 +67,12 @@ class ContentType extends AbstractType
     {
         return ChoiceType::class;
     }
+
+    /**
+     * @return string
+     */
+    public function getName()
+    {
+        return 'admin_content';
+    }
 }
