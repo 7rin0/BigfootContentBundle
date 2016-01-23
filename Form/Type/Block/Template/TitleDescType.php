@@ -92,16 +92,8 @@ class TitleDescType extends AbstractType
             array(
                 'data_class' => 'Bigfoot\Bundle\ContentBundle\Entity\Block\Template\TitleDesc',
                 'template'   => '',
-                'templates'  => ''
+                'templates'  => '',
             )
         );
-    }
-
-    /**
-     * @return string
-     */
-    public function getName()
-    {
-        return 'admin_block_template_title_desc';
     }
 }

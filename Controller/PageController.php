@@ -8,7 +8,9 @@ use Bigfoot\Bundle\CoreBundle\Util\StringUtil;
 use Doctrine\Common\Collections\ArrayCollection;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Cache;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
+use Symfony\Component\Config\Definition\Exception\Exception;
 use Symfony\Component\EventDispatcher\GenericEvent;
+use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 
 /**
  * Page controller.
@@ -107,14 +109,16 @@ class PageController extends CrudController
         $page      = new $page();
         $page->setTemplate($template);
         $action = $this->generateUrl('admin_page_new', array('template' => $template));
+
         $form   = $this->createForm(
             get_class($this->get('bigfoot_content.form.type.page_template_'.$pTemplate)),
             $page,
             array(
                 'template'  => $template,
-                'templates' => $templates
+                'templates' => $templates,
             )
         );
+        die();
 
         $this->getEventDispatcher()->dispatch(FormEvent::CREATE, new GenericEvent($form));
 

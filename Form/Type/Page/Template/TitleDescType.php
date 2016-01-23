@@ -113,12 +113,4 @@ class TitleDescType extends AbstractType
             )
         );
     }
-
-    /**
-     * @return string
-     */
-    public function getName()
-    {
-        return 'admin_page_template_title_desc';
-    }
 }

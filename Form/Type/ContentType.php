@@ -58,6 +58,7 @@ class ContentType extends AbstractType
                 'template'      => '',
                 'templates'     => '',
                 'label'         => false,
+                'compound' => true
             )
         );
     }
