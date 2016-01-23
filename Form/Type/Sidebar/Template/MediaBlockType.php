@@ -5,6 +5,7 @@ namespace Bigfoot\Bundle\ContentBundle\Form\Type\Sidebar\Template;
 use Bigfoot\Bundle\ContentBundle\Entity\Attribute;
 use Bigfoot\Bundle\ContentBundle\Form\Type\ContentType;
 use Bigfoot\Bundle\CoreBundle\Form\Type\TranslatedEntityType;
+use Bigfoot\Bundle\MediaBundle\Form\Type\BigfootMediaType;
 use Doctrine\ORM\EntityRepository;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
@@ -50,7 +51,7 @@ class MediaBlockType extends AbstractType
                     'label' => 'Style',
                 )
             )
-            ->add('media', 'bigfoot_media')
+            ->add('media', BigfootMediaType::class)
             ->add(
                 'blocks',
                 CollectionType::class,
