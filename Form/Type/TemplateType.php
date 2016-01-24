@@ -10,8 +10,16 @@ use Symfony\Component\Form\FormView;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Validator\Constraints as Assert;
 
+/**
+ * Class TemplateType
+ *
+ * @package Bigfoot\Bundle\ContentBundle\Form\Type
+ */
 class TemplateType extends AbstractType
 {
+    /**
+     * @var
+     */
     private $templates;
     /**
      * @param FormBuilderInterface $builder
@@ -40,6 +48,11 @@ class TemplateType extends AbstractType
             );
     }
 
+    /**
+     * @param FormView      $view
+     * @param FormInterface $form
+     * @param array         $options
+     */
     public function buildView(FormView $view, FormInterface $form, array $options)
     {
         $view->vars['contentType'] = $options['contentType'];
@@ -59,6 +72,11 @@ class TemplateType extends AbstractType
         );
     }
 
+    /**
+     * @param $templates
+     *
+     * @return array
+     */
     public function toStringTemplates($templates)
     {
         $nTemplates = array();
@@ -75,6 +93,11 @@ class TemplateType extends AbstractType
         return $nTemplates;
     }
 
+    /**
+     * @param $templates
+     *
+     * @return array
+     */
     public function toArrayTemplates($templates)
     {
         $nTemplates = array();

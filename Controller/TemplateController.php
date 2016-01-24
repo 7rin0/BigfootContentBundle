@@ -69,6 +69,12 @@ class TemplateController extends BaseController
         return $content;
     }
 
+    /**
+     * @param $contentType
+     * @param $template
+     *
+     * @return array
+     */
     public function getContentForm($contentType, $template)
     {
         $pTemplate = $this->getParentTemplate($template);
@@ -90,6 +96,11 @@ class TemplateController extends BaseController
         );
     }
 
+    /**
+     * @param $template
+     *
+     * @return mixed
+     */
     public function getParentTemplate($template)
     {
         $values = explode('_', $template);
@@ -98,6 +109,12 @@ class TemplateController extends BaseController
         return str_replace('_'.$end, '', $template);
     }
 
+    /**
+     * @param $contentType
+     * @param $parent
+     *
+     * @return mixed
+     */
     public function getTemplates($contentType, $parent)
     {
         $templates = $this->getParameter('bigfoot_content.templates.'.$contentType);
@@ -105,6 +122,12 @@ class TemplateController extends BaseController
         return $templates[$parent];
     }
 
+    /**
+     * @param $contentType
+     * @param $template
+     *
+     * @return \Symfony\Component\HttpFoundation\Response
+     */
     public function renderForm($contentType, $template)
     {
         $contentForm = $this->getContentForm($contentType, $template);

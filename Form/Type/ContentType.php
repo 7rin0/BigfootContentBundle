@@ -11,6 +11,11 @@ use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
+/**
+ * Class ContentType
+ *
+ * @package Bigfoot\Bundle\ContentBundle\Form\Type
+ */
 class ContentType extends AbstractType
 {
     /**
@@ -63,6 +68,9 @@ class ContentType extends AbstractType
         );
     }
 
+    /**
+     * @return mixed
+     */
     public function getParent()
     {
         return ChoiceType::class;

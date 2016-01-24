@@ -24,6 +24,9 @@ class SidebarController extends CrudController
         return 'admin_sidebar';
     }
 
+    /**
+     * @return string
+     */
     protected function getNewUrl()
     {
         return '';
@@ -37,6 +40,9 @@ class SidebarController extends CrudController
         return 'BigfootContentBundle:Sidebar';
     }
 
+    /**
+     * @return array
+     */
     protected function getFields()
     {
         return array(
@@ -52,6 +58,9 @@ class SidebarController extends CrudController
         );
     }
 
+    /**
+     * @return string
+     */
     public function getFormTemplate()
     {
         return $this->getEntity().':edit.html.twig';
@@ -223,6 +232,11 @@ class SidebarController extends CrudController
         return $this->doDelete($requestStack, $id);
     }
 
+    /**
+     * @param $template
+     *
+     * @return mixed
+     */
     public function getParentTemplate($template)
     {
         $values = explode('_', $template);
@@ -231,6 +245,11 @@ class SidebarController extends CrudController
         return str_replace('_'.$end, '', $template);
     }
 
+    /**
+     * @param $parent
+     *
+     * @return mixed
+     */
     public function getTemplates($parent)
     {
         $templates = $this->getParameter('bigfoot_content.templates.sidebar');

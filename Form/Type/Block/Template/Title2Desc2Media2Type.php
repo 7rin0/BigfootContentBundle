@@ -14,6 +14,11 @@ use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
+/**
+ * Class Title2Desc2Media2Type
+ *
+ * @package Bigfoot\Bundle\ContentBundle\Form\Type\Block\Template
+ */
 class Title2Desc2Media2Type extends AbstractType
 {
     /**

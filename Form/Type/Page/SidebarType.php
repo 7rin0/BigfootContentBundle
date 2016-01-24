@@ -11,8 +11,16 @@ use Symfony\Component\Form\FormEvent;
 use Symfony\Component\Form\FormEvents;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
+/**
+ * Class SidebarType
+ *
+ * @package Bigfoot\Bundle\ContentBundle\Form\Type\Page
+ */
 class SidebarType extends AbstractType
 {
+    /**
+     * @var string
+     */
     protected $templates;
 
     /**
@@ -64,6 +72,11 @@ class SidebarType extends AbstractType
         );
     }
 
+    /**
+     * @param $templates
+     *
+     * @return array
+     */
     public function toStringTemplates($templates)
     {
         $nTemplates = array();

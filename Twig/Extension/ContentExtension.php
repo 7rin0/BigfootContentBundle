@@ -17,8 +17,17 @@ use Twig_SimpleFunction;
  */
 class ContentExtension extends Twig_Extension
 {
+    /**
+     * @var Twig_Environment
+     */
     private $twig;
+    /**
+     * @var RouterInterface
+     */
     private $router;
+    /**
+     * @var EntityManager
+     */
     private $entityManager;
 
     /**
@@ -45,6 +54,12 @@ class ContentExtension extends Twig_Extension
         );
     }
 
+    /**
+     * @param       $page
+     * @param array $data
+     *
+     * @return string
+     */
     public function displayPage($page, array $data = null)
     {
         $template = (isset($data['template'])) ? $data['template'] : $page->getParentTemplate().'/'.$page->getSlugTemplate();
@@ -58,6 +73,12 @@ class ContentExtension extends Twig_Extension
         );
     }
 
+    /**
+     * @param       $sidebar
+     * @param array $data
+     *
+     * @return string
+     */
     public function displaySidebar($sidebar, array $data = null)
     {
         if (is_string($sidebar)) {
@@ -82,6 +103,12 @@ class ContentExtension extends Twig_Extension
         );
     }
 
+    /**
+     * @param       $block
+     * @param array $data
+     *
+     * @return string
+     */
     public function displayBlock($block, array $data = null)
     {
         if (is_string($block)) {
@@ -112,6 +139,12 @@ class ContentExtension extends Twig_Extension
         );
     }
 
+    /**
+     * @param $action
+     * @param $parameters
+     *
+     * @return array
+     */
     public function handleParameters($action, $parameters)
     {
         if ($action) {

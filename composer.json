@@ -23,7 +23,7 @@
         }
     ],
     "require": {
-        "bigfoot/core-bundle": "~4.0"
+        "7rino/bigfoot-core-bundle": "~4.0"
     },
     "autoload": {
         "psr-0": { "Bigfoot\\Bundle\\ContentBundle": "" }

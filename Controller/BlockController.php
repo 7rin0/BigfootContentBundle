@@ -40,6 +40,9 @@ class BlockController extends CrudController
         return 'BigfootContentBundle:Block';
     }
 
+    /**
+     * @return array
+     */
     protected function getFields()
     {
         return array(
@@ -55,6 +58,9 @@ class BlockController extends CrudController
         );
     }
 
+    /**
+     * @return string
+     */
     public function getFormTemplate()
     {
         return $this->getEntity().':edit.html.twig';
@@ -288,6 +294,11 @@ class BlockController extends CrudController
         return $this->doDelete($requestStack, $id);
     }
 
+    /**
+     * @param $template
+     *
+     * @return mixed
+     */
     public function getParentTemplate($template)
     {
         $values = explode('_', $template);
@@ -296,6 +307,12 @@ class BlockController extends CrudController
         return str_replace('_'.$end, '', $template);
     }
 
+    /**
+     * @param $contentType
+     * @param $parent
+     *
+     * @return mixed
+     */
     public function getTemplates($contentType, $parent)
     {
         $templates = $this->getParameter('bigfoot_content.templates.'.$contentType);

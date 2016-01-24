@@ -13,6 +13,11 @@ use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
+/**
+ * Class TitleDescType
+ *
+ * @package Bigfoot\Bundle\ContentBundle\Form\Type\Block\Template
+ */
 class TitleDescType extends AbstractType
 {
     /**

@@ -19,7 +19,7 @@ class MenuSubscriber implements EventSubscriberInterface
     private $security;
 
     /**
-     * @param Security $security
+     * @param TokenStorage $security
      */
     public function __construct(TokenStorage $security)
     {

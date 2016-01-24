@@ -13,6 +13,11 @@ use Symfony\Component\Form\Extension\Core\Type\CollectionType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
+/**
+ * Class MediaBlockType
+ *
+ * @package Bigfoot\Bundle\ContentBundle\Form\Type\Sidebar\Template
+ */
 class MediaBlockType extends AbstractType
 {
     /**

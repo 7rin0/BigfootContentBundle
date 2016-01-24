@@ -124,6 +124,11 @@ abstract class Content
         return $this->template;
     }
 
+    /**
+     * @param $templates
+     *
+     * @return array
+     */
     public function toStringTemplates($templates)
     {
         $nTemplates = array();

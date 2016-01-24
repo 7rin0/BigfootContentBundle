@@ -12,6 +12,11 @@ use Symfony\Component\Form\Extension\Core\Type\CollectionType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
+/**
+ * Class BlockType
+ *
+ * @package Bigfoot\Bundle\ContentBundle\Form\Type\Sidebar\Template
+ */
 class BlockType extends AbstractType
 {
     /**
