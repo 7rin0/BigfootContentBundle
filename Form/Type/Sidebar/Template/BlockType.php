@@ -84,12 +84,4 @@ class BlockType extends AbstractType
             )
         );
     }
-
-    /**
-     * @return string
-     */
-    public function getName()
-    {
-        return 'admin_sidebar_template_block';
-    }
 }

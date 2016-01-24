@@ -4,6 +4,7 @@ namespace Bigfoot\Bundle\ContentBundle\Form\Type\Page\Template;
 
 use Bigfoot\Bundle\ContentBundle\Entity\Attribute;
 use Bigfoot\Bundle\ContentBundle\Form\Type\ContentType;
+use Bigfoot\Bundle\ContentBundle\Form\Type\Page\BlockType;
 use Bigfoot\Bundle\CoreBundle\Form\Type\BigfootRichtextType;
 use Bigfoot\Bundle\CoreBundle\Form\Type\TranslatedEntityType;
 use Bigfoot\Bundle\MediaBundle\Form\Type\BigfootMediaType;
@@ -95,7 +96,7 @@ class TitleDesc2MediaBlockType extends AbstractType
                     'prototype'    => true,
                     'allow_add'    => true,
                     'allow_delete' => true,
-                    'entry_type'         => 'admin_page_block',
+                    'entry_type'         => BlockType::class,
                     'entry_options'      => array(
                         'page'       => $options['data'],
                         'data_class' => 'Bigfoot\Bundle\ContentBundle\Entity\Page\Block',
@@ -120,13 +121,5 @@ class TitleDesc2MediaBlockType extends AbstractType
                 'templates'  => ''
             )
         );
-    }
-
-    /**
-     * @return string
-     */
-    public function getName()
-    {
-        return 'admin_page_template_title_desc2_media_block';
     }
 }

@@ -101,12 +101,4 @@ class TitleDescBlockType extends AbstractType
             )
         );
     }
-
-    /**
-     * @return string
-     */
-    public function getName()
-    {
-        return 'admin_sidebar_template_title_desc_block';
-    }
 }

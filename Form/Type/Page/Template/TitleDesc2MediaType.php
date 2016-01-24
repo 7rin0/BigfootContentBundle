@@ -102,12 +102,4 @@ class TitleDesc2MediaType extends AbstractType
             )
         );
     }
-
-    /**
-     * @return string
-     */
-    public function getName()
-    {
-        return 'admin_page_template_title_desc2_media';
-    }
 }

@@ -88,12 +88,4 @@ class BlockType extends AbstractType
             )
         );
     }
-
-    /**
-     * @return string
-     */
-    public function getName()
-    {
-        return 'admin_page_block';
-    }
 }

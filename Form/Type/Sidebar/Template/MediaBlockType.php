@@ -86,12 +86,4 @@ class MediaBlockType extends AbstractType
             )
         );
     }
-
-    /**
-     * @return string
-     */
-    public function getName()
-    {
-        return 'admin_sidebar_template_media_block';
-    }
 }

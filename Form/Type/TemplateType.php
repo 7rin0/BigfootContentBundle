@@ -96,12 +96,4 @@ class TemplateType extends AbstractType
 
         return $nTemplates;
     }
-
-    /**
-     * @return string
-     */
-    public function getName()
-    {
-        return 'admin_template';
-    }
 }
