@@ -229,7 +229,7 @@ class SidebarController extends CrudController
             return $this->redirect($this->generateUrl($this->getRouteNameForAction('index')));
         }
 
-        return $this->doDelete($requestStack, $id);
+        return $this->doDelete($id);
     }
 
     /**
