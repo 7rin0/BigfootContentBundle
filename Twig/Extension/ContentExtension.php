@@ -31,7 +31,9 @@ class ContentExtension extends Twig_Extension
     private $entityManager;
 
     /**
-     * Construct ContentExtension
+     * @param Twig_Environment $twig
+     * @param RouterInterface  $router
+     * @param EntityManager    $entityManager
      */
     public function __construct(Twig_Environment $twig, RouterInterface $router, EntityManager $entityManager)
     {

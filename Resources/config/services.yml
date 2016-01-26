@@ -4,7 +4,7 @@ services:
         class: 'Bigfoot\Bundle\ContentBundle\Twig\Extension\ContentExtension'
         arguments:
             - '@twig'
-            - '@router'
+            - '@router.default'
             - '@doctrine.orm.default_entity_manager'
         tags:
             - { name: twig.extension }
