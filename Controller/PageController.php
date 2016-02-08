@@ -129,10 +129,6 @@ class PageController extends CrudController
 
             $form->handleRequest($requestStack);
 
-            dump($form->isValid());
-            dump($form->getErrors(true, false));
-            dump($form->getData());
-
             if ($form->isValid()) {
                 $this->persistAndFlush($page);
 
